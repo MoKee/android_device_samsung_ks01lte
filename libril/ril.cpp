@@ -23,7 +23,7 @@
 #include <telephony/ril_cdma_sms.h>
 #include <cutils/sockets.h>
 #include <cutils/jstring.h>
-#include <cutils/record_stream.h>
+#include <telephony/record_stream.h>
 #include <utils/Log.h>
 #include <utils/SystemClock.h>
 #include <pthread.h>
@@ -758,6 +758,13 @@ dispatchSIM_IO (Parcel &p, RequestInfo *pRI) {
 
     // note we only check status at the end
 
+    simIO.v6.cla = 0;
+    if(pRI->pCI->requestNumber == RIL_REQUEST_SIM_TRANSMIT_BASIC ||
+            pRI->pCI->requestNumber == RIL_REQUEST_SIM_TRANSMIT_CHANNEL ) {
+        status = p.readInt32(&t);
+        simIO.v6.cla = (int)t;
+    }
+
     status = p.readInt32(&t);
     simIO.v6.command = (int)t;
 
@@ -778,13 +785,6 @@ dispatchSIM_IO (Parcel &p, RequestInfo *pRI) {
     simIO.v6.data = strdupReadString(p);
     simIO.v6.pin2 = strdupReadString(p);
     simIO.v6.aidPtr = strdupReadString(p);
-
-    simIO.v6.cla = 0;
-    if(pRI->pCI->requestNumber == RIL_REQUEST_SIM_TRANSMIT_BASIC ||
-            pRI->pCI->requestNumber == RIL_REQUEST_SIM_TRANSMIT_CHANNEL ) {
-        status = p.readInt32(&t);
-        simIO.v6.cla = (int)t;
-    }
 
     startRequest;
     appendPrintBuf("%scmd=0x%X,efid=0x%X,path=%s,%d,%d,%d,%s,pin2=%s,aid=%s", printBuf,
