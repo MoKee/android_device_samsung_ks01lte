@@ -35,7 +35,7 @@
 /sys/class/misc/gammacontrol/tuner						u:object_r:sysfs_display:s0
 /sys/devices/virtual/misc/gammacontrol/tuner					u:object_r:sysfs_display:s0
 
-# CMHW
+# MKHW
 /sys/devices/virtual/timed_output/vibrator(/.*)?				u:object_r:sysfs_vibeamp:s0
 /sys/devices/virtual/sec/sec_touchkey/keypad_enable				u:object_r:sysfs_display:s0
 
