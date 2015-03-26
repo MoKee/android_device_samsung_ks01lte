@@ -14,7 +14,6 @@ etc/permissions/com.quicinc.cne.xml
 vendor/lib/libcneapiclient.so
 vendor/lib/libcneconn.so
 vendor/lib/libcneqmiutils.so
-vendor/lib/libcneutils.so
 vendor/lib/libxml.so
 lib/libcnefeatureconfig.so
 framework/com.quicinc.cne.jar
@@ -75,6 +74,7 @@ vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
 vendor/lib/egl/libq3dtools_adreno.so
 vendor/lib/libadreno_utils.so
+vendor/lib/libbccQTI.so
 vendor/lib/libC2D2.so
 vendor/lib/libCB.so
 vendor/lib/libc2d30-a3xx.so
