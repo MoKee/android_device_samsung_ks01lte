@@ -99,6 +99,7 @@ WIFI_DRIVER_FW_PATH_AP := "/system/etc/wifi/bcmdhd_apsta.bin"
 BOARD_VENDOR := samsung
 BOARD_MOBILEDATA_INTERFACE_NAME := "rmnet0"
 BOARD_PROVIDES_LIBRIL := true
+BOARD_MODEM_TYPE := xmm6360
 
 # MKHW
 BOARD_HARDWARE_CLASS += device/samsung/ks01lte/mkhw
@@ -143,7 +144,6 @@ BOARD_SEPOLICY_UNION += \
     sensorhubservice.te \
     service.te \
     service_contexts \
-    system_app.te \
     system_server.te \
     tee.te \
     thermal-engine.te \
