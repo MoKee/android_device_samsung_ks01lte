@@ -24,7 +24,7 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/ks01lte
 TARGET_KERNEL_CONFIG := mokee_ks01lte_defconfig
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000 --second_offset 0x00f00000
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F androidboot.bootdevice=msm_sdcc.1
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -35,7 +35,7 @@ BOARD_CUSTOM_BOOTIMG_MK := device/samsung/ks01lte/mkbootimg.mk
 AUDIO_FEATURE_DISABLED_ANC_HEADSET := true
 AUDIO_FEATURE_DISABLED_MULTI_VOICE_SESSIONS := true
 AUDIO_FEATURE_DISABLED_FM := true
-AUDIO_FEATURE_ENABLED_LOW_LATENCY_CAPTURE := true
+AUDIO_FEATURE_ENABLED_HWDEP_CAL := true
 AUDIO_FEATURE_ENABLED_NEW_SAMPLE_RATE := true
 
 # Bluetooth
@@ -50,6 +50,9 @@ TARGET_GPS_HAL_PATH := device/samsung/ks01lte/gps
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
+
+# Logging
+TARGET_USES_LOGD := false
 
 # NFC
 BOARD_NFC_HAL_SUFFIX := msm8974
@@ -97,9 +100,13 @@ WIFI_DRIVER_FW_PATH_AP := "/system/etc/wifi/bcmdhd_apsta.bin"
 BOARD_VENDOR := samsung
 BOARD_MOBILEDATA_INTERFACE_NAME := "rmnet0"
 BOARD_PROVIDES_LIBRIL := true
+BOARD_MODEM_TYPE := xmm6360
 
 # MKHW
 BOARD_HARDWARE_CLASS += device/samsung/ks01lte/mkhw
+
+# Display
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 # RIL Class (for correct tech assignment)
 BOARD_RIL_CLASS := ../../../device/samsung/ks01lte/ril
@@ -109,6 +116,9 @@ TARGET_PROVIDES_CAMERA_HAL := true
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
+
+# Recovery
+TARGET_RECOVERY_DEVICE_DIRS := device/samsung/ks01lte/recovery
 
 # SElinux
 include device/qcom/sepolicy/sepolicy.mk
