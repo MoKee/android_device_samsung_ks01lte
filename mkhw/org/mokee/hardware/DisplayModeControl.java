@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.cyanogenmod.hardware;
+package org.mokee.hardware;
 
 import java.io.File;
-import cyanogenmod.hardware.DisplayMode;
-import org.cyanogenmod.hardware.util.FileUtils;
+import mokee.hardware.DisplayMode;
+import org.mokee.hardware.util.FileUtils;
 
 /*
  * Display Modes API
